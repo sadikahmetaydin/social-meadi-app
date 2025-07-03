@@ -2,7 +2,7 @@ import { HomeIcon, BellIcon, UserIcon, MagnifyingGlassIcon, SparklesIcon  } from
 
 const Navbar = () => {
   return (
-      <div className="max-w-screen-2xl mx-auto flex items-center justify-between px-4 py-3 border-b border-gray-300">
+      <div className="max-w-screen-2xl mx-auto flex items-center justify-between px-4 py-3 border-b border-gray-200">
           {/* Left */}
           <div className="text-2xl font-bold cursor-pointer text-blue-500 relative">Socialy <SparklesIcon className="w-5 h-5 absolute left-21 top-1" /></div>
 
