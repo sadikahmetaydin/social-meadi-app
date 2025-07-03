@@ -1,4 +1,4 @@
-import { HomeIcon, HashtagIcon, BellIcon, InboxIcon, BookmarkIcon, UserIcon, EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, HashtagIcon, BellIcon, InboxIcon, BookmarkIcon, UserIcon, EllipsisHorizontalCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
 
 const Sidebar = () => {
   return (
@@ -37,6 +37,10 @@ const Sidebar = () => {
       <button className="flex items-center space-x-3 hover:text-blue-500 p-2 rounded-full w-full cursor-pointer transition-all ease-in">
         <EllipsisHorizontalCircleIcon className="w-6 h-6" />
         <span>More</span>
+      </button>
+
+      <button className="p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-full cursor-pointer transition-all ease-in relative">
+        Create a post  <SparklesIcon className="w-5 h-5 absolute left-10 top-3" />
       </button>
     </div>
   )
