@@ -2,9 +2,10 @@ import { HomeIcon, BellIcon, UserIcon, MagnifyingGlassIcon, SparklesIcon  } from
 
 const Navbar = () => {
   return (
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 border-b border-gray-200">
+    <div className="border-b border-gray-200">
+      <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Left */}
-          <div className="text-2xl font-bold cursor-pointer text-blue-500 relative">Socialy <SparklesIcon className="w-5 h-5 absolute left-21 top-1" /></div>
+          <div className="text-2xl font-bold cursor-pointer text-blue-500 relative pl-3">Socialy <SparklesIcon className="w-5 h-5 absolute left-23 top-1" /></div>
 
           <div className="flex items-center space-x-4">
             {/* Search Bar */}
@@ -22,6 +23,7 @@ const Navbar = () => {
             <UserIcon className="w-6 cursor-pointer hover:text-blue-500" />
           </div>
       </div>
+    </div>
   )
 }
 export default Navbar

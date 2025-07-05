@@ -2,7 +2,7 @@ import { SparklesIcon, PlusCircleIcon, PhotoIcon, GifIcon, ChartBarIcon, FaceSmi
 
 export default function TweetBox() {
   return (
-    <div className="w-full max-w-2xl mx-[565px] p-3 m-3 border border-gray-200 rounded-xl">
+    <div className="p-3 m-3 mr-3 border border-gray-200 rounded-xl">
       <div className="flex space-x-4">
           <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHdpdHRlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" 
           alt="" className="w-12 h-12 rounded-full object-cover"/>
