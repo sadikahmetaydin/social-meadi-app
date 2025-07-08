@@ -1,9 +1,11 @@
+import AuthPage from "./pages/AuthPage"
 import Home from "./pages/Home"
 
 const App = () => {
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
+      <AuthPage />
     </div>
   )
 }
