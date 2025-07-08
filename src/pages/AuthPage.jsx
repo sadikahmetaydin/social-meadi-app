@@ -6,7 +6,7 @@ const AuthPage = () => {
   return (
     <div>
       <Login />
-      <Register />
+      {/* <Register /> */}
     </div>
   )
 }
