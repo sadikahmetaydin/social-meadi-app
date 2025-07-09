@@ -1,4 +1,5 @@
 import { SparklesIcon } from "@heroicons/react/24/outline"
+import { Link } from "react-router-dom"
 
 const Register = () => {
   return (
@@ -6,7 +7,9 @@ const Register = () => {
 
       <div className="flex flex-col items-center space-y-4 p-10 border border-blue-500 rounded-xl">
 
-        <div className="text-4xl font-bold cursor-pointer text-blue-500 relative pl-3 mb-10">Socialy <SparklesIcon className="w-7 h-7 absolute left-33 top-0" /></div>
+        <Link to="/">
+          <div className="text-4xl font-bold cursor-pointer text-blue-500 relative pl-3 mb-5">Socialy <SparklesIcon className="w-7 h-7 absolute left-33 top-0" /></div>
+        </Link>
       
         <button className="bg-gray-200 hover:bg-gray-300 w-2xs p-3 rounded-full shadow-md">Sign up with Google</button>
         <button className="bg-gray-200 hover:bg-gray-300 w-2xs p-3 rounded-full shadow-md">Sign up with Apple</button>
@@ -43,7 +46,9 @@ const Register = () => {
 
         <div className="flex flex-col items-center">
           <h2>Already have an account?</h2>
-          <button className="border border-blue-500 text-blue-500 hover:bg-blue-100 w-2xs p-3 rounded-full mt-2">Sign In</button>
+          <Link to="/login">
+            <button className="border border-blue-500 text-blue-500 hover:bg-blue-100 w-2xs p-3 rounded-full mt-2">Sign In</button>
+          </Link>
         </div>
 
       </div>
