@@ -1,4 +1,5 @@
 import { HomeIcon, BellIcon, UserIcon, MagnifyingGlassIcon, SparklesIcon  } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -20,7 +21,7 @@ const Navbar = () => {
           <div className="flex space-x-6">
             <HomeIcon className="w-6 cursor-pointer hover:text-blue-500" />
             <BellIcon className="w-6 cursor-pointer hover:text-blue-500" />
-            <UserIcon className="w-6 cursor-pointer hover:text-blue-500" />
+            <Link to="/auth"><UserIcon className="w-6 cursor-pointer hover:text-blue-500" /></Link>
           </div>
       </div>
     </div>
