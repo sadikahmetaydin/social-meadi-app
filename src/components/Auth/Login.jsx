@@ -34,7 +34,7 @@ const Login = () => {
             className="w-full px-4 py-2 rounded bg-gray-300 outline-blue-500"
           />
 
-          <button className="bg-blue-600 hover:bg-blue-500 text-white w-2xs p-3 rounded-full shadow-md mt-2">Create an Account</button>
+          <button className="bg-blue-600 hover:bg-blue-500 text-white w-2xs p-3 rounded-full shadow-md mt-2">Login</button>
           
         </div>
 
