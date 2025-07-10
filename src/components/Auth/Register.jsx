@@ -1,7 +1,28 @@
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { auth } from "../../firebase"
 import { SparklesIcon } from "@heroicons/react/24/outline"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Register = () => {
+
+  const navigate = useNavigate();
+
+  const handleGoogleSign = async (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      console.log("Successfully login: ", user)
+      navigate("/");
+    } catch (error) {
+      console.error("Google sign-in error: ", error)
+    }
+
+  }
+
   return (
     <form className="min-h-screen flex items-center justify-center bg-gray-100 rounded-lg ">
 
@@ -11,7 +32,7 @@ const Register = () => {
           <div className="text-4xl font-bold cursor-pointer text-blue-500 relative pl-3 mb-5">Socialy <SparklesIcon className="w-7 h-7 absolute left-33 top-0" /></div>
         </Link>
       
-        <button className="bg-gray-200 hover:bg-gray-300 w-2xs p-3 rounded-full shadow-md">Sign up with Google</button>
+        <button onClick={handleGoogleSign} className="bg-gray-200 hover:bg-gray-300 w-2xs p-3 rounded-full shadow-md">Sign up with Google</button>
         <button className="bg-gray-200 hover:bg-gray-300 w-2xs p-3 rounded-full shadow-md">Sign up with Apple</button>
         
         
