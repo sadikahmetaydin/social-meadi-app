@@ -1,11 +1,34 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useEffect, useState } from "react";
 import { SparklesIcon, PlusCircleIcon, PhotoIcon, GifIcon, ChartBarIcon, FaceSmileIcon, CalendarIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 
 export default function TweetBox() {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+
   return (
     <div className="p-3 m-3 mr-3 border border-gray-200 rounded-xl">
       <div className="flex space-x-4">
-          <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHdpdHRlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" 
-          alt="" className="w-12 h-12 rounded-full object-cover"/>
+          
+          {/* Update Photo with Firebase */}
+          {
+            user ? (
+              <img src={user.photoURL} alt="Profile" className="w-12 h-12 rounded-full object-cover cursor-pointer" />
+            ) : (
+              <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHdpdHRlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" 
+                alt="" className="w-12 h-12 rounded-full object-cover"/>
+            )
+          }
 
           <div className="flex-1">
             <textarea rows="3" placeholder="Share your idea..." className="w-full h-20 p-3 bg-gray-100 border-none outline-none placeholder-gray-400 rounded-md resize-none" />

@@ -1,7 +1,22 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { useEffect, useState } from "react";
 import { HomeIcon, BellIcon, UserIcon, MagnifyingGlassIcon, SparklesIcon  } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+
   return (
     <div className="border-b border-gray-200">
       <div className="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -21,7 +36,16 @@ const Navbar = () => {
           <div className="flex space-x-6">
             <HomeIcon className="w-6 cursor-pointer hover:text-blue-500" />
             <BellIcon className="w-6 cursor-pointer hover:text-blue-500" />
-            <Link to="/auth"><UserIcon className="w-6 cursor-pointer hover:text-blue-500" /></Link>
+            
+            {/* Update Photo with Firebase */}
+            {
+              user ? (
+                <img src={user.photoURL } alt="Profile" className="w-8 h-8 rounded-full object-cover cursor-pointer" />
+              ) : (
+                <Link to="/auth"><UserIcon className="w-6 cursor-pointer hover:text-blue-500" /></Link>
+              )
+            }
+
           </div>
       </div>
     </div>

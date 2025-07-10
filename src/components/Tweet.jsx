@@ -1,11 +1,32 @@
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../firebase"
+import { useEffect, useState } from "react"
 import { ChatBubbleLeftEllipsisIcon, ArrowPathIcon, HandThumbUpIcon, ShareIcon } from "@heroicons/react/24/outline"
 
 const Tweet = ({name, username, avatar, content, time}) => {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    }, [])
+
+    return () => unsubscribe();
+  });
+
   return (
     <div className="border-b border-gray-200 p-4 hover:bg-gray-100 transition-colors duration-200">
       <div className="flex items-start space-x-4">
 
-        <img src={avatar} alt="Profile" className="w-12 h-12 rounded-full object-cover" />
+        {/* Update Photo with Firebase */}
+        {
+          user ? (
+            <img src={user.photoURL } alt="Profile" className="w-12 h-12 rounded-full object-cover cursor-pointer" />
+          ) : (
+            <img src={avatar} alt="Profile" className="w-12 h-12 rounded-full object-cover" />
+          )
+        }
         
         <div className="flex-1">
           <div className="flex items-center justify-between">
