@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase"
 import { useEffect, useState } from "react"
-import { ChatBubbleLeftEllipsisIcon, ArrowPathIcon, HandThumbUpIcon, ShareIcon } from "@heroicons/react/24/outline"
+import { ChatBubbleLeftEllipsisIcon, ArrowPathIcon, HandThumbUpIcon, ShareIcon, XCircleIcon } from "@heroicons/react/24/outline"
 
 const Tweet = ({name, username, avatar, content, time}) => {
 
@@ -34,7 +34,7 @@ const Tweet = ({name, username, avatar, content, time}) => {
               <span className="text-sm font-bold">{name}</span>
               <span className="text-gray-400 cursor-pointer ml-1 text-sm">@{username} . {time}</span>
             </div>
-            <div className="text-gray-400 cursor-pointer hover:text-gray-600">•••</div>
+            <div className="text-red-400 cursor-pointer hover:text-red-500"><XCircleIcon className="w-5 h-5" /></div>
           </div>
           
           <p className="text-gray-600 mt-2 text-sm">{content}</p>
