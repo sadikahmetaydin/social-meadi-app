@@ -1,3 +1,6 @@
+import { deleteDoc, doc } from "firebase/firestore"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../firebase"
 import { db } from "../firebase"
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore"
 import { useEffect, useState } from "react"
@@ -5,8 +8,10 @@ import { ChatBubbleLeftEllipsisIcon, ArrowPathIcon, HandThumbUpIcon, ShareIcon, 
 
 const Tweet = () => {
 
+  const [user, setUser] = useState(null);
   const [tweets, setTweets] = useState([]);
 
+  // Get Tweet Firestore
   useEffect(() => {
     const q = query(collection(db, "tweets"), orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -18,6 +23,25 @@ const Tweet = () => {
 
     return () => unsubscribe();
   }, []);
+
+  // Delete Tweet
+  const handleDelelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "tweets", id));
+      console.log("Tweet deleted successfully.");
+    } catch (error) {
+      console.log("Something went wrong!", error.message);
+    }
+  }
+
+  // Delete Tweet if User Correct
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, [])
 
   return (
     <div className="space-y-4 mt-4">
@@ -39,7 +63,12 @@ const Tweet = () => {
                       <span className="text-sm font-bold">{displayName}</span>
                       <span className="text-gray-400 cursor-pointer ml-1 text-sm">@{username} . {time}</span>
                     </div>
-                    <div className="text-red-400 cursor-pointer hover:text-red-500"><XCircleIcon className="w-5 h-5" /></div>
+                    
+                    {/* If user correct deleting tweet */}
+                    {user?.uid === uid && (
+                      <div onClick={() => handleDelelete(tweet.id)} className="text-red-400 cursor-pointer hover:text-red-500"><XCircleIcon className="w-5 h-5" /></div>
+                    )}
+
                   </div>
                   
                   <p className="text-gray-600 mt-2 text-sm">{text}</p>
