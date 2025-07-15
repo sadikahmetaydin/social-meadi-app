@@ -1,4 +1,5 @@
 import { HomeIcon, HashtagIcon, BellIcon, InboxIcon, BookmarkIcon, UserIcon, EllipsisHorizontalCircleIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import UserCard from "./UserCard";
 
 const Sidebar = () => {
   return (
@@ -42,6 +43,8 @@ const Sidebar = () => {
       <button className="p-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full w-full cursor-pointer transition-all ease-in relative">
         Create a post  <SparklesIcon className="w-5 h-5 absolute left-10 top-3" />
       </button>
+
+      <UserCard />
     </div>
   )
 }
