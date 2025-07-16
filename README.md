@@ -1,20 +1,15 @@
 # Socilay - Full Stack Social Media App ✨
 
-This dynamic social media app, fully developed using Firebase, enables users to post text-based tweets, share images, and manage their content in real-time.
+This social media app project was built entirely with modern web technologies, combining Firebase and React to deliver a streamlined, real-time user experience.
 
-🔐 **Secure Authentication:** Integrated Google Sign-In allows users to safely authenticate and access their accounts with ease.
+Using React for the frontend, I crafted a modular and responsive interface enhanced with TailwindCSS for sleek styling and Heroicons for intuitive interaction elements. Behind the scenes, Firebase Authentication provides secure Google Sign-In capabilities, while Firestore acts as the real-time database, enabling instant tweet syncing and updates via ``onSnapshot``.
 
-📡 **Live Feed System:** Powered by Firestore’s ``onSnapshot``, tweets appear instantly on screen, delivering a seamless real-time experience.
+To support media-rich posts, Firebase Storage was integrated, allowing users to upload and display images alongside their tweets. Time-based operations like sorting and timestamping were handled with Firestore’s built-in ``serverTimestamp`` function. For content management, ``deleteDoc`` ensures users can safely remove their own tweets, maintaining a controlled and personalized experience.
 
-🖼️ **Media Support:** Users can attach images to their tweets. Firebase Storage handles secure upload and distribution of multimedia content.
+React Hooks like ``useState`` and ``useEffect`` manage component state and lifecycle events, creating a smooth and reactive application environment.
 
-🗑️ **Content Control:** Each user can delete only their own tweets — UID matching ensures controlled, secure management of posts.
+This stack of technologies comes together to form a compact yet powerful Twitter-style application, built with scalability and user-centered design in mind.
 
-📁 **Modular Architecture:** With reusable components like ``UserCard.jsx``, the UI remains clean, scalable, and easy to maintain.
-
-🎨 **Modern Interface:** TailwindCSS and Heroicons deliver a responsive, aesthetic UI for smooth user interactions.
-
-This project combines advanced React and Firebase capabilities to deliver a streamlined micro-social platform. I'm planning to extend features further, including comment threads, like counters, and dark/light theme toggles in future versions.
 
 ## 🛠 Technology and Tools
 
@@ -59,6 +54,4 @@ To run the project locally, follow these steps:
 
 ## 🎥 Video
 
-
-https://github.com/user-attachments/assets/b6aafe9a-941d-4109-9539-33538eff4d05
-
+https://github.com/user-attachments/assets/6c8c15f3-41df-4b96-9c70-b40d3dbd6187
